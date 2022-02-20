@@ -3,6 +3,7 @@ import cv2 as cv
 import numpy as np
 pytesseract.pytesseract.tesseract_cmd=r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
+d = {"T" : "text", "B" : "button", "H":"header"}
 class Widget():
     def __init__(self, x, y, width, height, box):
         self.x = x
@@ -13,11 +14,11 @@ class Widget():
         self.text = ""
 
 def filterRed(img): #returns red bin mask
-    min_mask = (115, 0, 30)
+    min_mask = (100, 0, 100)
     max_mask = (180, 255, 255)
     b1 = cv.inRange(img, min_mask, max_mask)
-    min_mask = (0, 0, 30)
-    max_mask = (9, 255, 255)
+    min_mask = (0, 0, 114)
+    max_mask = (4, 255, 255)
     b2 = cv.inRange(img, min_mask, max_mask)
     return b1 | b2
 def filterGreen(img): #returns green bin mask
@@ -45,34 +46,39 @@ def getWidgets(img):#returns a list of boxes
             ct+=1
             f_cnt.append(c)
     return out
-
-img = cv.imread('img\\test3.jpg', cv.COLOR_BGR2HSV)
-# img = cv.GaussianBlur(img, (5,5), 1)
-out = img
-widgets = getWidgets(img)
-ct = 1
-custom_config = r'-c tessedit_char_whitelist=TBI --psm 10'
-for w in widgets:
-    frame_HSV = cv.cvtColor(w.b, cv.COLOR_BGR2HSV)
-    cv.rectangle(out, (w.x, w.y), (w.x + w.w, w.y + w.h), (0, 255, 0), 3)
-    rbin_mask = filterRed(frame_HSV)
-    rbin_mask = cv.erode(rbin_mask, kernel=np.ones((2, 2), np.uint8))
-    rbin_mask = cv.dilate(rbin_mask, kernel=np.ones((2, 2), np.uint8), iterations=1)
-    rbin_mask = cv.bitwise_not(rbin_mask)
-    text = pytesseract.image_to_string(rbin_mask)
-    cv.imwrite(f'output\\{ct}r.png', rbin_mask)
-    print(text)
-    gbin_mask = filterGreen(frame_HSV)    
-    contours, hierarchy = cv.findContours(gbin_mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-    x, y, w, h = cv.boundingRect(contours[0])
-    letter = gbin_mask[y:(y+h), x:(x+w)]
-    letter = cv.dilate(letter, kernel=np.ones((4, 4), np.uint8), iterations=2)
-    letter = cv.copyMakeBorder(letter, 20, 20, 20, 20, cv.BORDER_CONSTANT, None, value = 0)
-    letter = cv.resize(letter, (60, 60))
-    letter = cv.bitwise_not(letter)
-    wtype = pytesseract.image_to_string(letter, config=custom_config)
-    print("type", wtype)
-    cv.imwrite(f'output\\{ct}g.png', letter)
-    ct+=1
-
-cv.imwrite(f'output\\out.png', out)
+def createWebWidgets(img):
+    fout = img
+    out = []
+    widgets = getWidgets(img)
+    ct = 1
+    custom_config = r'-c tessedit_char_whitelist=TBHtbh --psm 10'
+    for w in widgets:
+        frame_HSV = cv.cvtColor(w.b, cv.COLOR_BGR2HSV)
+        cv.rectangle(fout, (w.x, w.y), (w.x + w.w, w.y + w.h), (0, 255, 0), 3)
+        rbin_mask = filterRed(frame_HSV)
+        rbin_mask = cv.erode(rbin_mask, kernel=np.ones((2, 2), np.uint8), iterations = 1)
+        rbin_mask = cv.dilate(rbin_mask, kernel=np.ones((2, 2), np.uint8), iterations=1)
+        rbin_mask = cv.bitwise_not(rbin_mask)
+        text = pytesseract.image_to_string(rbin_mask)
+        cv.imwrite(f'output\\{ct}r.png', rbin_mask)
+        # print(text)
+        gbin_mask = filterGreen(frame_HSV)    
+        contours, hierarchy = cv.findContours(gbin_mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+        x, y, wi, h = cv.boundingRect(contours[0])
+        letter = gbin_mask[y:(y+h), x:(x+wi)]
+        letter = cv.dilate(letter, kernel=np.ones((4, 4), np.uint8))
+        letter = cv.copyMakeBorder(letter, 20, 20, 20, 20, cv.BORDER_CONSTANT, None, value = 0)
+        letter = cv.resize(letter, (60, 60))
+        letter = cv.bitwise_not(letter)
+        wtype = pytesseract.image_to_string(letter, config=custom_config)
+        # print("type", wtype)
+        if len(wtype) == 0:
+            wtype = "B"
+        cv.imwrite(f'output\\{ct}g.png', letter)
+        ct+=1
+        out.append([w.x, w.y, w.w, w.h, d[wtype[0]], text])
+    print(out)
+    cv.imwrite(f'output\\out.png', fout)
+    return out
+img = cv.imread('img\\demo.jpg', cv.COLOR_BGR2HSV)
+w = createWebWidgets(img)
