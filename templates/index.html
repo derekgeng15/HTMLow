@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>HTMLow - Home Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/styles.css')}}">
+    
+</head>
+<body>
+    <!-- <h1 tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</h1> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 2px solid #106cfc">
+        <a id="navText" class="navbar-brand" href="#">HTMLow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <!--add link to the home page?-->
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Account</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      <div id="topContainer">
+          <br><br><br><br>
+          <a href="/dashboard">
+             <button style="width:25%" class="btn btn-outline-primary btn-lg">Try</button>
+          </a>
+      </div>
+      <br>
+      <section class="p-4">
+          <div class="container">
+              <div class="row text-center">
+                  <div class="col-md">
+                      <div class="card bg-dark" style="padding: 20px">
+                        <div class="h1">
+                            <i class="bi-cloud-upload" style="color: #0D6EFD"></i>
+                            <div class="stepText">
+                                <h1></h1>
+                                <h3>Step 1:</h3>
+                                <h6>Upload your low fidelity website drawing to our website</h6>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="card bg-dark" style="padding: 20px">
+                        <div class="h1">
+                            <i class="bi-clock-history" style="color: #0D6EFD"></i>
+                            <div class="stepText">
+                                <h1></h1>
+                                <h3>Step 2:</h3>
+                                <h6>Wait a few moments as our algorithms generate an HTML template based on your image</h6>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark" style="padding: 20px">
+                        <div class="h1">
+                            <i class="bi-clipboard-data" style="color: #0D6EFD"></i>
+                            <div class="stepText">
+                                <h1></h1>
+                                <h3>Step 3:</h3>
+                                <h6>Take a look at your newly generated HTML page and the corresponding code</h6>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+          </div>
+      </section>
+
+</body>
+<script src="{{url_for('static', filename = 'scripts/home.js')}}"></script>
+</html>

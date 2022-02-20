@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> HTMLow Prototype Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
+<style>
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600");
+
+.htmlow-dashboard {
+  align-items: center;
+  background-color: var(--desert-storm);
+  display: flex;
+  flex-direction: column;
+  height: 1024px;
+  padding: 50px 0;
+  width: 1920px;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.flex-row-2 {
+  align-items: flex-start;
+  display: flex;
+  height: 664px;
+  margin-right: 41px;
+  margin-top: 27px;
+  min-width: 1731px;
+}
+
+.flex-col-1 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 664px;
+  width: 1311px;
+}
+
+.flex-row-6 {
+  align-items: flex-start;
+  display: flex;
+  height: 514px;
+  margin-top: 31px;
+  min-width: 1311px;
+}
+
+.flex-col-4 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 514px;
+  width: 265px;
+}
+
+.htm-low-from-02192022 {
+  letter-spacing: 0;
+  margin-left: 6px;
+  margin-top: 19px;
+  min-height: 66px;
+}
+
+.span1 {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+}
+
+.vector-4-1 {
+  height: 2px;
+  margin-top: 389px;
+  width: 265px;
+}
+
+.flex-row-7 {
+  align-items: center;
+  display: flex;
+  height: 38px;
+  margin-left: 6px;
+  min-width: 171px;
+}
+
+.vector-11 {
+  height: 35px;
+  margin-bottom: 1px;
+  width: 35px;
+}
+
+.account {
+  letter-spacing: 0;
+  margin-left: 30px;
+  min-height: 38px;
+  min-width: 106px;
+}
+
+.flex-col-5 {
+  align-items: flex-start;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  margin-left: 84px;
+  min-height: 502px;
+  width: 301px;
+}
+
+.view-more {
+  letter-spacing: 0;
+  margin-top: 35px;
+  min-height: 38px;
+  text-decoration: underline;
+}
+
+.rectangle-9 {
+  background-color: var(--log-cabin);
+  border-radius: 30px;
+  height: 429px;
+  width: 301px;
+}
+
+.rectangle-12 {
+  background-color: var(--log-cabin);
+  border-radius: 30px;
+  height: 429px;
+  margin-left: 30px;
+  margin-top: 4px;
+  width: 301px;
+}
+
+.rectangle-13 {
+  background-color: var(--log-cabin);
+  border-radius: 30px;
+  height: 429px;
+  margin-left: 30px;
+  margin-top: 4px;
+  width: 300px;
+}
+
+.flex-col-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+  min-height: 119px;
+  width: 1073px;
+}
+
+.flex-row-5 {
+  align-items: flex-start;
+  display: flex;
+  height: 44px;
+  margin-top: 23px;
+  min-width: 788px;
+}
+
+.vector-9 {
+  height: 36px;
+  margin-top: 1px;
+  width: 35px;
+}
+
+.vector-10 {
+  align-self: center;
+  height: 24px;
+  margin-left: 10px;
+  margin-top: 6px;
+  width: 24px;
+}
+
+.expand_more_black_24dp-1 {
+  height: 24px;
+  margin-left: 238px;
+  margin-top: 5px;
+  width: 24px;
+}
+
+.recent-files {
+  align-self: flex-end;
+  letter-spacing: 0;
+  margin-left: 175px;
+  min-height: 38px;
+  min-width: 149px;
+}
+
+.settings {
+  letter-spacing: 0;
+  margin-left: 30px;
+  min-height: 38px;
+  min-width: 103px;
+}
+
+.flex-row-3 {
+  align-items: flex-end;
+  display: flex;
+  height: 52px;
+  min-width: 1073px;
+}
+
+.overlap-group1 {
+  align-items: flex-start;
+  background-color: var(--blue-zodiac);
+  border-radius: 100px;
+  display: flex;
+  height: 45px;
+  justify-content: flex-end;
+  margin-bottom: 1px;
+  margin-left: 30px;
+  min-width: 141px;
+  padding: 3px 26px;
+}
+
+.search-1 {
+  letter-spacing: 0;
+  min-height: 38px;
+}
+
+.overlap-group {
+  align-items: flex-start;
+  background-color: var(--blue-zodiac);
+  border-radius: 100px;
+  display: flex;
+  height: 45px;
+  justify-content: flex-end;
+  margin-bottom: 1px;
+  margin-left: 44px;
+  min-width: 141px;
+  padding: 3px 17px;
+}
+
+.vector-8 {
+  align-self: center;
+  height: 8px;
+  margin-left: 7px;
+  margin-top: 0.41px;
+  width: 12px;
+}
+
+.team-1 {
+  letter-spacing: 0;
+  min-height: 38px;
+  min-width: 87px;
+}
+
+.flex-col-3 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 52px;
+  width: 717px;
+}
+
+.flex-row-4 {
+  align-items: flex-start;
+  display: flex;
+  height: 44px;
+  min-width: 471px;
+}
+
+.help {
+  letter-spacing: 0;
+  margin-left: 30px;
+  min-height: 38px;
+  min-width: 57px;
+}
+
+.search {
+  align-self: flex-end;
+  color: var(--log-cabin);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-left: 15px;
+  min-height: 38px;
+  min-width: 88px;
+}
+
+.vector-6 {
+  height: 35px;
+  margin-top: 1px;
+  width: 35px;
+}
+
+.vector-7 {
+  align-self: center;
+  height: 25px;
+  margin-left: 221px;
+  margin-top: 5px;
+  width: 25px;
+}
+
+.vector-5-1 {
+  align-self: flex-end;
+  height: 2px;
+  margin-top: 6px;
+  width: 380px;
+}
+
+.flex-col-6 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 89px;
+  margin-top: 3px;
+  min-height: 326px;
+  width: 331px;
+}
+
+.name {
+  color: 
+transparent;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-left: 6px;
+  min-height: 38px;
+}
+
+.flex-col-item {
+  letter-spacing: 0;
+  margin-left: 6px;
+  margin-top: 7px;
+  min-height: 38px;
+}
+
+.download-our-mobile-app {
+  align-self: flex-end;
+  letter-spacing: 0;
+  margin-right: 2px;
+  margin-top: 34px;
+  min-height: 38px;
+  min-width: 323px;
+  text-decoration: underline;
+}
+
+.vector-6-1 {
+  height: 2px;
+  margin-top: 34px;
+  width: 259px;
+}
+
+.flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 233px;
+  width: 1772px;
+}
+
+.flex-row-1 {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  margin-right: 7px;
+  margin-top: 85px;
+  min-width: 1753px;
+}
+
+.vector-4 {
+  height: 35px;
+  margin-top: 1px;
+  width: 35px;
+}
+
+.vector-5 {
+  height: 24px;
+  margin-left: 10px;
+  margin-top: 2px;
+  width: 24px;
+}
+
+.dashboard {
+  letter-spacing: 0;
+  margin-left: 30px;
+  margin-top: 2px;
+  min-height: 38px;
+  min-width: 141px;
+}
+
+.title {
+  letter-spacing: 0;
+  margin-left: 137px;
+  min-height: 60px;
+  min-width: 228px;
+}
+
+.team-members {
+  letter-spacing: 0;
+  margin-left: 829px;
+  min-height: 60px;
+  min-width: 319px;
+}
+
+.flex-row {
+  align-items: flex-end;
+  display: flex;
+  min-width: 1760px;
+}
+
+.rectangle-5 {
+  background-color: 
+#c4c4c4;
+  height: 67px;
+  width: 67px;
+}
+
+.vector-2 {
+  height: 35px;
+  margin-bottom: 5px;
+  margin-left: 30px;
+  width: 35px;
+}
+
+.vector {
+  height: 35px;
+  margin-bottom: 5px;
+  margin-left: 797px;
+  width: 35px;
+}
+
+.vector-1 {
+  height: 35px;
+  margin-bottom: 5px;
+  margin-left: 30px;
+  width: 28px;
+}
+
+.welcome-to-your-dashboard-jon_ye {
+  align-self: center;
+  letter-spacing: 0;
+  margin-left: 131px;
+  margin-top: 3px;
+  min-height: 38px;
+  min-width: 462px;
+}
+
+.htm-low {
+  align-self: center;
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-left: 23px;
+  min-height: 45px;
+  min-width: 122px;
+}
+
+.vector-container {
+  align-items: flex-start;
+  display: flex;
+  margin-top: 19px;
+  min-width: 1772px;
+}
+
+.vector-3 {
+  align-self: flex-end;
+  height: 2px;
+  margin-left: 78px;
+  width: 372px;
+}
+
+.vector-1-1 {
+  height: 2px;
+  width: 265px;
+}
+
+.vector-2-1 {
+  height: 2px;
+  margin-left: 78px;
+  width: 979px;
+}
+:root {
+  --black: 
+rgba(0, 0, 0, 1);
+  --blue-zodiac: 
+rgba(10, 39, 73, 1);
+  --log-cabin: 
+rgba(34, 34, 34, 0.502);
+  --mist-gray: 
+rgba(196, 196, 196, 1);
+  --desert-storm: 
+rgba(248, 248, 248, 1);
+
+  --font-size-s: 20px;
+  --font-size-m: 25px;
+  --font-size-l: 30px;
+  --font-size-xl: 40px;
+
+  --font-family-poppins: "Poppins";
+}
+
+
+
+.poppins-normal-desert-storm-25px {
+  color: var(--desert-storm);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  font-style: normal;
+}
+.poppins-medium-blue-zodiac-25px {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  font-style: normal;
+}
+.poppins-normal-log-cabin-25px {
+  color: var(--log-cabin);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  font-style: normal;
+}
+.poppins-semi-bold-blue-zodiac-25px {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  font-style: normal;
+}
+.poppins-medium-blue-zodiac-30px {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-weight: 500;
+  font-style: normal;
+}
+.poppins-semi-bold-blue-zodiac-40px {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  font-style: normal;
+}
+.poppins-normal-blue-zodiac-20px {
+  color: var(--blue-zodiac);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  font-style: normal;
+}
+.poppins-medium-log-cabin-25px {
+  color: var(--log-cabin);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  font-style: normal;
+}
+</style>
+
+</head>
+
+<body>
+<div class="htmlow-dashboardscreen">
+  <div class="flex-col">
+    <div class="flex-row">
+      <div class="rectangle-5"></div>
+      <div class="htm-low">HTMLow</div>
+      <div class="welcome-to-your-dashboard-jon_yepoppins-medium-blue-zodiac-25px">Welcome to your Dashboard, jon_ye</div>
+      <img class="vector" src="{{url_for('static', filename='images/vector.svg')}}" /><img class="vector-1" src="{{url_for('static', filename='images/vector-7.svg')}}" /><img
+        class="vector-2"
+        src="vector-8.svg"
+      />
+    </div>
+    <div class="vector-container">
+      <img class="vector-1-1" src="{{url_for('static', filename='images/vector-1.svg')}}" /><img class="vector-2-1" src="{{url_for('static', filename='images/vector-2.svg')}}" /><img
+        class="vector-3"
+        src="{{url_for('static', filename='images/vector-3.svg')}}"
+      />
+    </div>
+    <div class="flex-row-1">
+      <img class="vector-4" src="{{url_for('static', filename='images/vector-9.svg')}}" />
+      <div class="dashboardpoppins-medium-blue-zodiac-25px">Dashboard</div>
+      <h1 class="titlepoppins-semi-bold-blue-zodiac-40px">Dashboard</h1>
+      <div class="team-memberspoppins-semi-bold-blue-zodiac-40px">Team Members</div>
+      <img class="vector-5" src="{{url_for('static', filename='images/vector-13.svg')}}" />
+    </div>
+  </div>
+  <div class="flex-row-2">
+    <div class="flex-col-1">
+      <div class="flex-col-2">
+        <div class="flex-row-3">
+          <div class="flex-col-3">
+            <div class="flex-row-4">
+              <img class="vector-6" src="{{url_for('static', filename='images/vector-10.svg')}}" />
+              <div class="helppoppins-medium-log-cabin-25px">Help</div>
+              <img class="vector-7" src="{{url_for('static', filename='images/vector-6.svg')}}" />
+              <div class="search">Search</div>
+            </div>
+            <img class="vector-5-1" src="{{url_for('static', filename='images/vector-5.svg')}}" />
+          </div>
+          <div class="overlap-group">
+            <div class="team-1poppins-normal-desert-storm-25px">Team 1</div>
+            <img class="vector-8" src="{{url_for('static', filename='images/vector-14.svg')}}" />
+          </div>
+          <div class="overlap-group1">
+            <div class="search-1poppins-normal-desert-storm-25px">Search</div>
+          </div>
+        </div>
+        <div class="flex-row-5">
+          <img class="vector-9" src="{{url_for('static', filename='images/vector-12.svg')}}" />
+          <div class="settingspoppins-medium-log-cabin-25px">Settings</div>
+          <div class="recent-filespoppins-medium-blue-zodiac-25px">Recent Files</div>
+          <img class="vector-10" src="{{url_for('static', filename='images/vector-13.svg')}}" /><img
+            class="expand_more_black_24dp-1"
+            src="expand-more-black-24dp-1.png"
+          />
+        </div>
+      </div>
+      <div class="flex-row-6" style="border: 2px solid red">
+        <div class="flex-col-4">
+          <div class="flex-row-7">
+            <img class="vector-11" src="{{url_for('static', filename='images/vector-12.svg')}}" />
+            <div class="accountpoppins-medium-log-cabin-25px">Account</div>
+          </div>
+          <img class="vector-4-1" src="{{url_for('static', filename='images/vector-1.svg')}}" />
+          <div class="htm-low-from-02192022poppins-semi-bold-blue-zodiac-25px">
+            <span class="poppins-semi-bold-blue-zodiac-25px">HTMLow<br /></span><span class="span1">from 02.19.2022</span>
+          </div>
+        </div>
+        <div class="flex-col-12" style="border: 2px solid red">
+          <div class="rectangle-9"></div>
+          <div class="view-morepoppins-medium-blue-zodiac-25px">View More</div>
+        </div>
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+      </div>
+    </div>
+    <div class="flex-col-6">
+      <div class="name">
+        <span class="poppins-medium-blue-zodiac-25px">Jon Ye </span><span class="poppins-medium-log-cabin-25px">(you)</span>
+      </div>
+      <div class="flex-col-itempoppins-medium-blue-zodiac-25px">Samay Dhawan</div>
+      <div class="flex-col-itempoppins-medium-blue-zodiac-25px">Pradyun Kamaraju</div>
+      <div class="flex-col-itempoppins-medium-blue-zodiac-25px">Tejas Khare</div>
+      <div class="flex-col-itempoppins-medium-blue-zodiac-25px">Derek Geng</div>
+      <img class="vector-6-1" src="{{url_for('static', filename='images/vector-6.svg')}}" />
+      <div class="download-our-mobile-apppoppins-medium-blue-zodiac-25px">Download our Mobile app</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

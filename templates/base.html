@@ -1,0 +1,20 @@
+<html>
+<head>
+
+{% if title %}
+<title>{{ title }}</title>
+{% else %}
+<title>Welcome to Micro-blogger Index page!</title>
+{% endif %}
+
+<style>
+{% block style %}{% endblock %}
+</style>
+</head>
+
+<body>
+<h1><a href='/'>Index</a>
+<br/>
+{% block content %}{% endblock %}
+</body>
+</html>

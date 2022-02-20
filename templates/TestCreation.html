@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <style>
+    {% for (n, x, y, w, h, type, text) in data %}
+      .{{type}}{{n}} {
+        border: 1px solid red;
+        text-align: center;
+        margin: auto; /*maybe get rid of */
+        font-size: 100%;
+        position: absolute;
+        left: {{x}}px;
+        top: {{y}}px;
+        width: {{w}}px;
+        height: {{h}}px;
+      }
+    {% endfor %}
+  </style>
+</head>
+  <body>
+    {% for (n, x, y, w, h, type, text) in data %}
+    {% if type == 'button' %}
+      <button class='{{type}}{{n}}' type="submit" style='z-index: 10;'>
+        {{text}}
+      </button>
+
+    {% elif type == 'input' %}
+      <input class='{{type}}{{n}}' type="text">
+        {{text}}
+      </input>
+    {% else %}
+      <{{type}} class='{{type}}{{n}}'>
+        {{text}}
+      </{{type}}>
+    {% endif %}
+
+    {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>HTMLow - Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/all_styles.css')}}"> 
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'styles/style_2.css')}}">  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> 
+    <style>
+      .body {
+        background-color: #eeeee4;
+      }
+      .an_option:hover{
+      }
+      .container2 .box { 
+          width:540px; 
+          margin:50px; 
+          display:table; 
+      } 
+      .container2 .box .box-row { 
+          display:table-row; 
+      } 
+      .container2 .box .box-cell { 
+          display:table-cell; 
+          width:33%; 
+          padding:10px; 
+          border-style: solid; 
+          border-width: 1px; 
+          border-color: #106cfc;
+          background-color: #28242c; 
+          color:white; 
+          text-align: center; 
+      } 
+      .container2 .box .box-cell:hover { 
+        background-color: #f2560d;
+      } 
+      .container2 .box .box-cell:focus { 
+        background-color: #f2560d;
+      } 
+      /* Style the tab */
+    </style>
+</head>
+<body>
+    <!-- <h1 tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</h1> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 2px solid #106cfc">
+        <a id="navText" class="navbar-brand" href="#">HTMLow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <!--add link to the home page?-->
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Account</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <br><br><br>
+      <div id="topContainer">
+          <h3>Dashboard</h3>
+          <br>
+          <h5>Create New HTMLow Project</h5>
+          <br>
+
+            <div class="custom-file" style="width: 700px">
+            <form action="" method="POST" enctype="multipart/form-data">
+              <input type="file" class="custom-file-input" id="fileInput" name="file">
+              <!-- <input type="file" name="file"> -->
+              <label id="fileInputLabel"class="custom-file-label bg-dark text-light" for="customFile">Choose file</label><br>
+              <br><button type="submit" class="btn btn-outline-primary btn-lg">Upload</button>
+            </form><br>
+        </div>
+        <br><br><br>
+          <a href="#general">
+             <button style="width:25%" class="btn btn-outline-primary btn-lg">View Image</button>
+          </a>
+          <a href="#nigen">
+             <button style="width:25%" class="btn btn-outline-primary btn-lg">View HTML File</button>
+          </a>
+      </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="mainPage" id="general">
+      <div id="topContainer" style="padding: 40px; border-top: 2px solid #106cfc; border-bottom: 2px solid #106cfc">
+          <h3></h3>
+          <br>
+          <h5>Original Image</h5>
+          <br><br>
+          <img src="{{file_loc}}" alt="/static/images/default_image.png">
+          <br><br><br>
+          <br><br>
+          <a href="{{file_loc}}" download><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download Image </button></a>
+      </div> 
+    </div>
+    <div class="mainPage" id="nigen">  
+      <div id="topContainer" style="padding: 40px; border-bottom: 2px solid #106cfc">
+          <br><br>
+          <br><br><br>
+          <h5>View Code</h5>
+          <br><br>
+          <a href="/view_page">
+          <button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Open HTML Page in New File </button></a>
+          </a>
+          <br><br>
+          <a href="/download_file"><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download HTML File </button></a>
+
+          <br><br><br>
+          <center>
+          <div class="container_2">
+            <div class="post_2">
+              <div class="text_2">Thanks for rating us!</div>
+              <div class="edit_2">EDIT</div>
+            </div>
+            <div class="star-widget_2">
+              <input type="radio" name="rate_2" id="rate-5_2">
+              <label for="rate-5_2" class="fas fa-star"></label>
+              <input type="radio" name="rate_2" id="rate-4_2">
+              <label for="rate-4_2" class="fas fa-star"></label>
+              <input type="radio" name="rate_2" id="rate-3_2">
+              <label for="rate-3_2" class="fas fa-star"></label>
+              <input type="radio" name="rate_2" id="rate-2_2">
+              <label for="rate-2_2" class="fas fa-star"></label>
+              <input type="radio" name="rate_2" id="rate-1_2">
+              <label for="rate-1_2" class="fas fa-star"></label>
+              <form action="#" method="POST">
+                <header></header>
+                <div class="textarea_2">
+                  <textarea cols="30" placeholder="Describe your experience..."></textarea>
+                </div>
+                <div class="btn_2" id = "feedbackBtn_2">
+                  <button type="submit">Post</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </center>
+
+          <br><br>
+          <script>
+            const btn_2 = document.getElementById("feedbackBtn_2");
+            const post_2 = document.querySelector(".post_2");
+            const widget_2 = document.querySelector(".star-widget_2");
+            const editBtn_2 = document.querySelector(".edit-2");
+            btn_2.onclick = function () {
+              if (container_2.style.display !== "none") {
+                container_2.style.display = "none";
+              } else {
+                container_2.style.display = "block";
+              }
+            };
+          </script>
+          <a href="{{html_file_loc}}" download><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download HTML </button></a>
+
+
+      </div>
+      <br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+</script>
+<script src="{{url_for('static', filename = 'scripts/analysis.js')}}"></script>
+</html>
+<!--
+ -->
