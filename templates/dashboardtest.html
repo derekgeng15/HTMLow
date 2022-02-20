@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/group.svg">
     <title>HTMLow - Dashboard</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'styles/styles.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'styles/all_styles.css')}}"> 
@@ -56,7 +57,8 @@
 <body>
     <!-- <h1 tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</h1> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 2px solid #106cfc">
-        <a id="navText" class="navbar-brand" href="#">HTMLow</a>
+        <a id="navText" class="navbar-brand" href="#">        
+          HTMLow</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -108,10 +110,10 @@
           <br>
           <h5>Original Image</h5>
           <br><br>
-          <img src="{{file_loc}}" alt="/static/images/default_image.png">
+          <img src="{{file_loc}}" style="width: 100%; height: auto" alt="/static/images/default_image.png">
           <br><br><br>
           <br><br>
-          <a href="{{file_loc}}" download><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download Image </button></a>
+          <a href="{{file_loc}}" download><button type="button" style="width:25%" class="btn btn-outline-primary btn-lg"> Download Image </button></a>
       </div> 
     </div>
     <div class="mainPage" id="nigen">  
@@ -121,42 +123,12 @@
           <h5>View Code</h5>
           <br><br>
           <a href="/view_page">
-          <button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Open HTML Page in New File </button></a>
+          <button type="button" style="width:25%" class="btn btn-outline-primary btn-lg"> Open HTML Page in New File </button></a>
           </a>
           <br><br>
-          <a href="/download_file"><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download HTML File </button></a>
+          <a href="/download_file"><button type="button" style="width:25%" class="btn btn-outline-primary btn-lg"> Download HTML File </button></a>
 
           <br><br><br>
-          <center>
-          <div class="container_2">
-            <div class="post_2">
-              <div class="text_2">Thanks for rating us!</div>
-              <div class="edit_2">EDIT</div>
-            </div>
-            <div class="star-widget_2">
-              <input type="radio" name="rate_2" id="rate-5_2">
-              <label for="rate-5_2" class="fas fa-star"></label>
-              <input type="radio" name="rate_2" id="rate-4_2">
-              <label for="rate-4_2" class="fas fa-star"></label>
-              <input type="radio" name="rate_2" id="rate-3_2">
-              <label for="rate-3_2" class="fas fa-star"></label>
-              <input type="radio" name="rate_2" id="rate-2_2">
-              <label for="rate-2_2" class="fas fa-star"></label>
-              <input type="radio" name="rate_2" id="rate-1_2">
-              <label for="rate-1_2" class="fas fa-star"></label>
-              <form action="#" method="POST">
-                <header></header>
-                <div class="textarea_2">
-                  <textarea cols="30" placeholder="Describe your experience..."></textarea>
-                </div>
-                <div class="btn_2" id = "feedbackBtn_2">
-                  <button type="submit">Post</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </center>
-
           <br><br>
           <script>
             const btn_2 = document.getElementById("feedbackBtn_2");
@@ -171,7 +143,7 @@
               }
             };
           </script>
-          <a href="{{html_file_loc}}" download><button type="button" style="width:12%" class="btn btn-outline-primary btn-lg"> Download HTML </button></a>
+          <!-- <a href="{{html_file_loc}}" download><button type="button" style="width:22%" class="btn btn-outline-primary btn-lg"> Download HTML </button></a> -->
 
 
       </div>

@@ -3,7 +3,9 @@ import math
 from flask import Flask, request, render_template, session, send_file
 from werkzeug.utils import secure_filename
 import os
+import cv2 as cv
 
+import imagedetector as imd
 cwd=os.getcwd()
 UPLOAD_FOLDER = cwd+'/uploads'
 
@@ -48,8 +50,13 @@ def dashboard():
 		html_file_path = '/static/' + filename[:-4] + '.html'
 		session['html_filename'] = filename[:-4] + '.html'
 
+		imd.createHTML(filename, os.path.join(os.getcwd()+'/static/images/' + filename), os.path.join(os.path.join(os.getcwd()+'/templates')))
+		imd.createHTML(filename, os.path.join(os.getcwd()+'/static/images/' + filename), os.path.join(os.getcwd()+'/static'))
+		
 		print("file_path:",file_path)
-
+		# img = cv.imread(file_path)
+		# img = cv.resize(img, (60, 60))
+		# cv.imwrite(file_path, img)
 
 		return render_template("dashboardtest.html", file_loc=file_path, html_file_loc=html_file_path, data=data) #Return same dashboard template, but with 
 

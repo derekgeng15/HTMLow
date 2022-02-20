@@ -80,8 +80,12 @@ def create_content(page, nested_boxes: list, step: int = 1, depth: int = 3):
 
 
 
-def create_html(filename: str, nested_boxes: list):
-    page = open(filename, 'w')
+def create_html(filename: str, nested_boxes: list, path :str = ""):
+    page = None
+    if path == "":
+        page = open(filename, 'w')
+    else:
+        page = open(path + "\\" + filename, 'w')
     template = open('main_template.html', 'r')
     lines = template.readlines()
     i = 0
